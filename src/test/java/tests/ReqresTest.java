@@ -41,14 +41,16 @@ public class ReqresTest {
 
     @Test
     public void getSingleUser(){
+        String expectedFirstName = "Janet";
+        int expectedId = 2;
         given()
                 .when()
                 .get("https://reqres.in/api/users/2")
                 .then()
                 .log().all()
                 .statusCode(HTTP_OK)
-                .body("data.id", equalTo(2))
-                .body("data.first_name", equalTo("Janet"));
+                .body("data.id", equalTo(expectedId))
+                .body("data.first_name", equalTo(expectedFirstName));
     }
     @Test
     public void getSingleUserNotFound(){
